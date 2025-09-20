@@ -6,13 +6,20 @@ function Collapsible(props) {
   const [opened, setOpened] = useState(false);
   const contentRef = useRef();
   function toggle() {
+    if (props.setItemAdded != undefined) {
+      props.setItemAdded(false);
+    }
     setOpened((prevOpened) => !prevOpened);
   }
 
   return (
     <div>
       <button
-        className={opened ? "collapsible-toggle active" : "collapsible-toggle"}
+        className={
+          opened || props.itemAdded
+            ? "collapsible-toggle active"
+            : "collapsible-toggle"
+        }
         onClick={toggle}
       >
         {props.title}
@@ -21,8 +28,10 @@ function Collapsible(props) {
         className="collapsible-content-parent"
         ref={contentRef}
         style={
-          opened
-            ? { height: contentRef.current.scrollHeight + "px" }
+          opened || props.itemAdded
+            ? {
+                height: "auto",
+              }
             : { height: "0px" }
         }
       >

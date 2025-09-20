@@ -9,7 +9,7 @@ function App() {
     firstName: "",
     lastName: "",
     description: "",
-    profilePictureFile: null,
+    profilePictureFile: "",
     jobTitle: "",
     email: "",
     phone: "",
