@@ -1,32 +1,43 @@
 import Collapsible from "./Collapsible";
+import InputSet from "./InputSet";
 
-function Controls() {
+function Controls({
+  personalInfo,
+  handlePersonalInfoChange,
+  experiences,
+  handleExperiencesChange,
+  addExperience,
+  removeExperience,
+}) {
   return (
     <section id="controls">
       <Collapsible title="Personal Information">
-        <div className="input-collection">
-          <input type="text" placeholder="First name" />
-          <input type="text" placeholder="Last name" />
-          <input type="file" placeholder="Profile picture" accept="image/*" />
-          <input type="text" placeholder="Job title" />
-          <input type="email" placeholder="Email" />
-          <input type="text" placeholder="Phone" />
-          <input type="text" placeholder="Address" />
-          <input type="text" placeholder="City" />
-          <input type="text" placeholder="Country" />
-          <input type="text" placeholder="LinkedIn link" />
-          <input type="text" placeholder="GitHub link" />
-        </div>
+        <InputSet data={personalInfo} onChange={handlePersonalInfoChange} />
       </Collapsible>
-      <Collapsible title="Work Experience" />
-      <Collapsible title="Education" />
+
+      <Collapsible title="Work Experience">
+        {experiences.map((experience, index) => (
+          <InputSet
+            key={index}
+            index={index}
+            data={experience}
+            onChange={handleExperiencesChange}
+            onRemove={removeExperience}
+          />
+        ))}
+        <button type="button" id="add-experience" onClick={addExperience}>
+          Add experience
+        </button>
+      </Collapsible>
+
+      {/*  <Collapsible title="Education" />
       <Collapsible title="Skills" />
       <Collapsible title="Projects" />
       <Collapsible title="Certifications" />
       <Collapsible title="Languages" />
       <Collapsible title="Interests" />
       <Collapsible title="References" />
-      <button id="add-section">Add Section</button>
+      <button id="add-section">Add Section</button> */}
     </section>
   );
 }
