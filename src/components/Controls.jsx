@@ -58,12 +58,29 @@ function Controls({
     setProjectAdded(true);
   }
 
+  const [certificationAdded, setCertificationAdded] = React.useState(false);
+  function handleAddCertification() {
+    addCertification();
+    setCertificationAdded(true);
+  }
+
+  const [languageAdded, setLanguageAdded] = React.useState(false);
+  function handleAddLanguage() {
+    addLanguage();
+    setLanguageAdded(true);
+  }
+
+  const [interestAdded, setInterestAdded] = React.useState(false);
+  function handleAddInterest() {
+    addInterest();
+    setInterestAdded(true);
+  }
+
   return (
     <section id="controls">
       <Collapsible title="Personal Information">
         <InputSet data={personalInfo} onChange={handlePersonalInfoChange} />
       </Collapsible>
-
       <Collapsible
         title="Work Experience"
         itemAdded={expAdded}
@@ -86,7 +103,6 @@ function Controls({
           Add experience
         </button>
       </Collapsible>
-
       <Collapsible
         title="Educations"
         itemAdded={eduAdded}
@@ -109,7 +125,6 @@ function Controls({
           Add Education
         </button>
       </Collapsible>
-
       <Collapsible
         title="Skills"
         itemAdded={skillAdded}
@@ -132,7 +147,6 @@ function Controls({
           Add Skill
         </button>
       </Collapsible>
-
       <Collapsible
         title="Projects"
         itemAdded={projectAdded}
@@ -155,15 +169,73 @@ function Controls({
           Add Project
         </button>
       </Collapsible>
+      <Collapsible
+        title="Certifications"
+        itemAdded={certificationAdded}
+        setItemAdded={setCertificationAdded}
+      >
+        {certifications.map((certification, index) => (
+          <InputSet
+            key={index}
+            index={index}
+            data={certification}
+            onChange={handleCertificationsChange}
+            onRemove={removeCertification}
+          />
+        ))}
+        <button
+          type="button"
+          className="add-item-button"
+          onClick={handleAddCertification}
+        >
+          Add Certification
+        </button>
+      </Collapsible>
+      <Collapsible
+        title="Languages"
+        itemAdded={languageAdded}
+        setItemAdded={setLanguageAdded}
+      >
+        {languages.map((language, index) => (
+          <InputSet
+            key={index}
+            index={index}
+            data={language}
+            onChange={handleLanguagesChange}
+            onRemove={removeLanguage}
+          />
+        ))}
+        <button
+          type="button"
+          className="add-item-button"
+          onClick={handleAddLanguage}
+        >
+          Add Language
+        </button>
+      </Collapsible>
 
-      {/*  <Collapsible title="Education" />
-      <Collapsible title="Skills" />
-      <Collapsible title="Projects" />
-      <Collapsible title="Certifications" />
-      <Collapsible title="Languages" />
-      <Collapsible title="Interests" />
-      <Collapsible title="References" />
-      <button id="add-section">Add Section</button> */}
+      <Collapsible
+        title="Interests"
+        itemAdded={interestAdded}
+        setItemAdded={setInterestAdded}
+      >
+        {interests.map((interest, index) => (
+          <InputSet
+            key={index}
+            index={index}
+            data={interest}
+            onChange={handleEnterestsChange}
+            onRemove={removeInterest}
+          />
+        ))}
+        <button
+          type="button"
+          className="add-item-button"
+          onClick={handleAddInterest}
+        >
+          Add Interest
+        </button>
+      </Collapsible>
     </section>
   );
 }

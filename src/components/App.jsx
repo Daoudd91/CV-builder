@@ -174,9 +174,6 @@ function App() {
       certificationName: "",
       issuingOrganization: "",
       issueDate: "",
-      expirationDate: "",
-      credentialID: "",
-      credentialURL: "",
     },
   ]);
 
@@ -187,9 +184,6 @@ function App() {
         certificationName: "",
         issuingOrganization: "",
         issueDate: "",
-        expirationDate: "",
-        credentialID: "",
-        credentialURL: "",
       },
     ]);
   }
