@@ -1,44 +1,56 @@
 import "../styles/Collapsible.css";
 
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 
-function Collapsible(props) {
+function Collapsible({ title, children, itemAdded, setItemAdded }) {
   const [opened, setOpened] = useState(false);
+  const [contentHeight, setContentHeight] = useState(0);
   const contentRef = useRef();
+
+  useEffect(() => {
+    if (!contentRef.current) return;
+
+    const el = contentRef.current;
+
+    const resizeObserver = new ResizeObserver(() => {
+      setContentHeight(el.scrollHeight);
+    });
+
+    resizeObserver.observe(el);
+
+    return () => resizeObserver.disconnect();
+  }, []);
+
   function toggle() {
-    if (props.setItemAdded != undefined) {
-      props.setItemAdded(false);
-    }
-    setOpened((prevOpened) => !prevOpened);
+    if (setItemAdded) setItemAdded(false);
+    setOpened((prev) => !prev);
   }
 
+  const isOpen = opened || itemAdded;
+
   return (
-    <div>
+    <div className="collapsible">
       <button
-        className={
-          opened || props.itemAdded
-            ? "collapsible-toggle active"
-            : "collapsible-toggle"
-        }
+        className={`collapsible-toggle ${isOpen ? "active" : ""}`}
         onClick={toggle}
       >
-        {props.title}
+        {title}
       </button>
+
       <div
         className="collapsible-content-parent"
-        ref={contentRef}
-        style={
-          opened || props.itemAdded
-            ? {
-                animation: "appearDown 0.5s ease-in-out",
-                height: contentRef.current.scrollHeight + "px",
-              }
-            : { animation: "disappearUp 0.5s ease-in-out", height: "0px" }
-        }
+        style={{
+          height: isOpen ? `${contentHeight}px` : "0px",
+          overflow: "hidden",
+          transition: "height 0.3s ease",
+        }}
       >
-        <div className="collapsible-content"> {props.children} </div>
+        <div ref={contentRef} className="collapsible-content">
+          {children}
+        </div>
       </div>
     </div>
   );
 }
+
 export default Collapsible;
