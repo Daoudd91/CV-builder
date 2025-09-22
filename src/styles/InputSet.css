@@ -5,6 +5,7 @@
   margin-bottom: 20px;
   border: 2px solid #ccc;
   border-radius: 8px;
+  padding: 8px;
 }
 
 .input-collection .field {
@@ -41,4 +42,15 @@
   cursor: pointer;
   font-size: 12px;
   align-self: flex-end;
+}
+
+.add-item-button {
+  background-color: darkgreen;
+  color: #ccc;
+  width: 100%;
+  padding: 5px;
+  font-weight: 800;
+  font-size: 16px;
+  border-radius: 10px;
+  outline: 2px solid white;
 }

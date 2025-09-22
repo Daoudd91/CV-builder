@@ -70,7 +70,73 @@ function App() {
   }
 
   // state variables for education:
-  //const [educations, setEducations] = React.useState([]);
+  const [educations, setEducations] = React.useState([
+    {
+      university: "",
+      degree: "",
+      city: "",
+      country: "",
+      startDate: "",
+      endDate: "",
+    },
+  ]);
+
+  function addEducation() {
+    setEducations((prevEducations) => [
+      ...prevEducations,
+      {
+        university: "",
+        degree: "",
+        city: "",
+        country: "",
+        startDate: "",
+        endDate: "",
+      },
+    ]);
+  }
+
+  function removeEducation(index) {
+    setEducations((prevEducations) =>
+      prevEducations.filter((_, i) => i !== index)
+    );
+  }
+
+  function handleEducationsChange(index, field, value) {
+    setEducations((prevEducations) => {
+      const newEducations = [...prevEducations];
+      newEducations[index][field] = value;
+      return newEducations;
+    });
+  }
+
+  const [skills, setSkills] = React.useState([
+    {
+      skillName: "",
+      proficiencyPercentage: "",
+    },
+  ]);
+
+  function addSkill() {
+    setSkills((prevSkills) => [
+      ...prevSkills,
+      {
+        skillName: "",
+        proficiencyPercentage: "",
+      },
+    ]);
+  }
+
+  function removeSkill(index) {
+    setSkills((prevSkills) => prevSkills.filter((_, i) => i !== index));
+  }
+
+  function handleSkillsChange(index, field, value) {
+    setSkills((prevSkills) => {
+      const newSkills = [...prevSkills];
+      newSkills[index][field] = value;
+      return newSkills;
+    });
+  }
 
   // state variables for skills:
   //const [skills, setSkills] = React.useState([]);
@@ -96,7 +162,15 @@ function App() {
         handleExperiencesChange={handleExperiencesChange}
         addExperience={addExperience}
         removeExperience={removeExperience}
-        /* educations={educations}
+        educations={educations}
+        handleEducationsChange={handleEducationsChange}
+        addEducation={addEducation}
+        removeEducation={removeEducation}
+        skills={skills}
+        handleSkillsChange={handleSkillsChange}
+        addSkill={addSkill}
+        removeSkill={removeSkill}
+        /*
         skills={skills}
         projects={projects}
         certifications={certifications}

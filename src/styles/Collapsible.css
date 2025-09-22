@@ -1,3 +1,21 @@
+@keyframes appearDown {
+  from {
+    height: 0;
+  }
+  to {
+    height: auto;
+  }
+}
+
+@keyframes disappearUp {
+  from {
+    height: auto;
+  }
+  to {
+    height: 0;
+  }
+}
+
 .collapsible-content {
   padding: 0.5rem;
   border-radius: 5px;
@@ -6,9 +24,8 @@
 }
 
 .collapsible-content-parent {
-  height: 0px;
   overflow: hidden;
-  transition: height ease 0.5s;
+  transition: all ease 0.5s;
 }
 
 .collapsible-toggle {

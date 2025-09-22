@@ -42,6 +42,18 @@ function InputSet({ index, data, onChange, onRemove }) {
               value={value}
               onChange={(e) => onChange(index, key, e.target.value)}
             />
+          ) : key.toLocaleLowerCase().includes("percentage") ? (
+            <>
+              <input
+                type="range"
+                min="0"
+                max="100"
+                placeholder={key}
+                value={value}
+                onChange={(e) => onChange(index, key, e.target.value)}
+              />
+              <output>{value + "%"}</output>
+            </>
           ) : (
             <input
               type="text"

@@ -30,9 +30,10 @@ function Collapsible(props) {
         style={
           opened || props.itemAdded
             ? {
-                height: "auto",
+                animation: "appearDown 0.5s ease-in-out",
+                height: contentRef.current.scrollHeight + "px",
               }
-            : { height: "0px" }
+            : { animation: "disappearUp 0.5s ease-in-out", height: "0px" }
         }
       >
         <div className="collapsible-content"> {props.children} </div>
