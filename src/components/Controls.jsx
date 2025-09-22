@@ -17,6 +17,22 @@ function Controls({
   handleSkillsChange,
   addSkill,
   removeSkill,
+  projects,
+  handleProjectsChange,
+  addProject,
+  removeProject,
+  certifications,
+  handleCertificationsChange,
+  addCertification,
+  removeCertification,
+  languages,
+  handleLanguagesChange,
+  addLanguage,
+  removeLanguage,
+  interests,
+  handleEnterestsChange,
+  addInterest,
+  removeInterest,
 }) {
   const [expAdded, setExpAdded] = React.useState(false);
   function handleAddExperience() {
@@ -34,6 +50,12 @@ function Controls({
   function handleAddSkill() {
     addSkill();
     setSkillAdded(true);
+  }
+
+  const [projectAdded, setProjectAdded] = React.useState(false);
+  function handleAddProject() {
+    addProject();
+    setProjectAdded(true);
   }
 
   return (
@@ -108,6 +130,29 @@ function Controls({
           onClick={handleAddSkill}
         >
           Add Skill
+        </button>
+      </Collapsible>
+
+      <Collapsible
+        title="Projects"
+        itemAdded={projectAdded}
+        setItemAdded={setProjectAdded}
+      >
+        {projects.map((project, index) => (
+          <InputSet
+            key={index}
+            index={index}
+            data={project}
+            onChange={handleProjectsChange}
+            onRemove={removeProject}
+          />
+        ))}
+        <button
+          type="button"
+          className="add-item-button"
+          onClick={handleAddProject}
+        >
+          Add Project
         </button>
       </Collapsible>
 

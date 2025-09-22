@@ -138,20 +138,135 @@ function App() {
     });
   }
 
-  // state variables for skills:
-  //const [skills, setSkills] = React.useState([]);
+  const [projects, setProjects] = React.useState([
+    {
+      projectName: "",
+      projectDescription: "",
+      projectLink: "",
+    },
+  ]);
 
-  // state variables for projects:
-  //const [projects, setProjects] = React.useState([]);
+  function addProject() {
+    setProjects((prevProjects) => [
+      ...prevProjects,
+      {
+        projectName: "",
+        projectDescription: "",
+        projectLink: "",
+      },
+    ]);
+  }
 
-  // state variables for certifications:
-  //const [certifications, setCertifications] = React.useState([]);
+  function removeProject(index) {
+    setProjects((prevProjects) => prevProjects.filter((_, i) => i !== index));
+  }
 
-  // state variables for languages:
-  //const [languages, setLanguages] = React.useState([]);
+  function handleProjectsChange(index, field, value) {
+    setProjects((prevProjects) => {
+      const newProjects = [...prevProjects];
+      newProjects[index][field] = value;
+      return newProjects;
+    });
+  }
 
-  // state variables for interests:
-  //const [interests, setInterests] = React.useState([]);
+  const [certifications, setCertifications] = React.useState([
+    {
+      certificationName: "",
+      issuingOrganization: "",
+      issueDate: "",
+      expirationDate: "",
+      credentialID: "",
+      credentialURL: "",
+    },
+  ]);
+
+  function addCertification() {
+    setCertifications((prevCertifications) => [
+      ...prevCertifications,
+      {
+        certificationName: "",
+        issuingOrganization: "",
+        issueDate: "",
+        expirationDate: "",
+        credentialID: "",
+        credentialURL: "",
+      },
+    ]);
+  }
+
+  function removeCertification(index) {
+    setCertifications((prevCertifications) =>
+      prevCertifications.filter((_, i) => i !== index)
+    );
+  }
+
+  function handleCertificationsChange(index, field, value) {
+    setCertifications((prevCertifications) => {
+      const newCertifications = [...prevCertifications];
+      newCertifications[index][field] = value;
+      return newCertifications;
+    });
+  }
+
+  const [languages, setLanguages] = React.useState([
+    {
+      languageName: "",
+      proficiencyLevel: "",
+    },
+  ]);
+
+  function addLanguage() {
+    setLanguages((prevLanguages) => [
+      ...prevLanguages,
+      {
+        languageName: "",
+        proficiencyLevel: "",
+      },
+    ]);
+  }
+
+  function removeLanguage(index) {
+    setLanguages((prevLanguages) =>
+      prevLanguages.filter((_, i) => i !== index)
+    );
+  }
+
+  function handleLanguagesChange(index, field, value) {
+    setLanguages((prevLanguages) => {
+      const newLanguages = [...prevLanguages];
+      newLanguages[index][field] = value;
+      return newLanguages;
+    });
+  }
+
+  const [interests, setInterests] = React.useState([
+    {
+      interestName: "",
+    },
+  ]);
+
+  function addInterest() {
+    setInterests((prevInterests) => [
+      ...prevInterests,
+      {
+        interestName: "",
+      },
+    ]);
+  }
+
+  function removeInterest(index) {
+    setInterests((prevInterests) =>
+      prevInterests.filter((_, i) => i !== index)
+    );
+  }
+
+  function handleInterestsChange(index, field, value) {
+    setInterests((prevInterests) => {
+      const newInterests = [...prevInterests];
+      newInterests[index][field] = value;
+      return newInterests;
+    });
+  }
 
   return (
     <div id="app-container">
@@ -170,12 +285,22 @@ function App() {
         handleSkillsChange={handleSkillsChange}
         addSkill={addSkill}
         removeSkill={removeSkill}
-        /*
-        skills={skills}
         projects={projects}
+        handleProjectsChange={handleProjectsChange}
+        addProject={addProject}
+        removeProject={removeProject}
         certifications={certifications}
+        handleCertificationsChange={handleCertificationsChange}
+        addCertification={addCertification}
+        removeCertification={removeCertification}
         languages={languages}
-        interests={interests} */
+        handleLanguagesChange={handleLanguagesChange}
+        addLanguage={addLanguage}
+        removeLanguage={removeLanguage}
+        interests={interests}
+        handleInterestsChange={handleInterestsChange}
+        addInterest={addInterest}
+        removeInterest={removeInterest}
       />
       <Preview />
     </div>
