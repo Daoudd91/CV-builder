@@ -1,13 +1,21 @@
 import "../styles/Preview.css";
+import ProfilePhoto from "./ProfilePhoto";
 
-function Preview() {
+function Preview({
+  personalInfo,
+  experiences,
+  educations,
+  skills,
+  projects,
+  certifications,
+  languages,
+  interests,
+}) {
   return (
     <section id="cv-preview">
       <div className="content"></div>
       <div className="skewed-bar"></div>
-      <div className="profile-photo">
-        <img src="" alt="" />
-      </div>
+      <ProfilePhoto photoFile={personalInfo.profilePictureFile} />
     </section>
   );
 }

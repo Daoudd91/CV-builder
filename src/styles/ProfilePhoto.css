@@ -1,0 +1,20 @@
+/* Profile photo */
+.profile-photo {
+  position: absolute;
+  top: 60px; /* align with horizontal bar top */
+  left: 100px; /* align with vertical bar left */
+  width: 250px; /* slightly bigger than horizontal bar height (200px) */
+  height: 250px;
+  border-radius: 50%; /* perfect circle */
+  overflow: hidden;
+  z-index: 1; /* above bars */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border: 5px solid #043280;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}

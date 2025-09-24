@@ -32,8 +32,7 @@ function InputSet({ index, data, onChange, onRemove }) {
             <input
               type="file"
               placeholder={key}
-              value={value}
-              onChange={(e) => onChange(index, key, e.target.value)}
+              onChange={(e) => onChange(index, key, e.target.files[0])}
             />
           ) : key.toLowerCase().includes("date") ? (
             <input
