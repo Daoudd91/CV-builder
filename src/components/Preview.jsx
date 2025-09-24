@@ -1,8 +1,13 @@
+import "../styles/Preview.css";
+
 function Preview() {
   return (
-    <section id="preview">
-      <h1>Preview Section</h1>
-      <p>This is where the CV preview will be displayed.</p>
+    <section id="cv-preview">
+      <div className="content"></div>
+      <div className="skewed-bar"></div>
+      <div className="profile-photo">
+        <img src="" alt="" />
+      </div>
     </section>
   );
 }

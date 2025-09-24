@@ -296,7 +296,16 @@ function App() {
         addInterest={addInterest}
         removeInterest={removeInterest}
       />
-      <Preview />
+      <Preview
+        personalInfo={personalInfo}
+        experiences={experiences}
+        educations={educations}
+        skills={skills}
+        projects={projects}
+        certifications={certifications}
+        languages={languages}
+        interests={interests}
+      />
     </div>
   );
 }

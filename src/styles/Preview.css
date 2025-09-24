@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Archivo+Black&family=Roboto+Slab:wght@100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+/* ---------------- Screen ---------------- */
+#cv-preview {
+  position: relative;
+  z-index: 0;
+  background-color: #ffffff;
+  overflow-y: auto;
+  font-family: "Ubuntu", sans-serif;
+  color: #333333;
+  padding-left: 280px; /* space for vertical bar */
+  padding-top: 280px; /* space for horizontal bar */
+  min-height: 100vh; /* ensures the page fills the viewport */
+}
+
+/* Vertical bar */
+#cv-preview::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 80px;
+  width: 300px;
+  background-color: #181818;
+  z-index: -1;
+}
+
+/* Horizontal bar */
+#cv-preview::after {
+  content: "";
+  position: absolute;
+  top: 100px;
+  left: 0;
+  right: 0;
+  height: 180px;
+  background-color: #043280;
+  z-index: -1;
+}
+
+/* Profile photo */
+.profile-photo {
+  position: absolute;
+  top: 60px; /* align with horizontal bar top */
+  left: 100px; /* align with vertical bar left */
+  width: 250px; /* slightly bigger than horizontal bar height (200px) */
+  height: 250px;
+  border-radius: 50%; /* perfect circle */
+  overflow: hidden;
+  z-index: 1; /* above bars */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  border: 5px solid #043280;
+}
+
+.profile-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.skewed-bar {
+  position: absolute;
+  top: 100px; /* adjust: vertical position inside horizontal bar */
+  left: 8%; /* horizontal offset inside bar */
+  width: 320px; /* rectangle width */
+  height: 180px; /* rectangle height */
+  background-color: #032a6b; /* accent color */
+  transform: skewX(-20deg); /* skew horizontally */
+  z-index: 1; /* above horizontal bar but below profile if needed */
+  border-radius: 4px; /* optional rounded corners */
+}
+
+/* ---------------- Print ---------------- */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #cv-preview,
+  #cv-preview * {
+    visibility: visible;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0mm;
+  }
+
+  #cv-preview {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    min-height: 100vh; /* ensure full page height */
+    margin: 0;
+    padding-left: 280px; /* space for vertical bar */
+    padding-top: 280px; /* space for horizontal bar */
+    box-sizing: border-box;
+    overflow: visible;
+    background-color: #ffffff; /* solid white for print */
+  }
+
+  #cv-preview::before {
+    height: 100vh; /* ensure vertical bar reaches bottom of page */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  #cv-preview::after {
+    width: 100%; /* ensure horizontal bar spans full page */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}
