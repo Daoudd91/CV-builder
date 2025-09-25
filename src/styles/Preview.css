@@ -46,7 +46,6 @@
   background-color: #032a6b; /* accent color */
   transform: skewX(-20deg); /* skew horizontally */
   z-index: 1; /* above horizontal bar but below profile if needed */
-  border-radius: 4px; /* optional rounded corners */
 }
 
 /* ---------------- Print ---------------- */
