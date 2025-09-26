@@ -17,6 +17,7 @@
   margin: 0;
   text-wrap-mode: nowrap;
   text-transform: uppercase;
+  text-shadow: 3px 3px 10px black;
 }
 
 .last-name {

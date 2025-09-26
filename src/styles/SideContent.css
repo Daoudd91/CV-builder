@@ -1,0 +1,50 @@
+.side-content {
+  position: absolute;
+  box-sizing: border-box;
+  top: 300px;
+  bottom: 0;
+  left: 80px;
+  width: 300px;
+  max-width: 300px;
+  background-color: transparent;
+  text-align: center;
+  color: white;
+  padding: 10px 20px;
+  font-weight: 100;
+}
+
+.about-me > p:first-child {
+  font-size: 28px;
+}
+
+.contact-info {
+  text-align: left;
+}
+
+.side-content a:link {
+  color: rgb(123, 213, 255);
+}
+
+.side-content a:hover {
+  color: rgb(42, 187, 255);
+}
+
+.side-content-block {
+  margin-top: 40px;
+  text-align: left;
+}
+
+.side-content-block ul {
+  line-height: 200%;
+}
+
+.side-section-header {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  border: 2px solid #2870aa;
+  text-align: center;
+  border-radius: 15px;
+}

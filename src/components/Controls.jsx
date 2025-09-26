@@ -30,7 +30,7 @@ function Controls({
   addLanguage,
   removeLanguage,
   interests,
-  handleEnterestsChange,
+  handleInterestsChange,
   addInterest,
   removeInterest,
 }) {
@@ -224,7 +224,7 @@ function Controls({
             key={index}
             index={index}
             data={interest}
-            onChange={handleEnterestsChange}
+            onChange={handleInterestsChange}
             onRemove={removeInterest}
           />
         ))}
