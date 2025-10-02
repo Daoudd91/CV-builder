@@ -66,38 +66,47 @@ function SideContent({
       <div className="contact-info">
         {phone && (
           <p>
-            <FontAwesomeIcon icon={faPhone}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faPhone}
+              className={"icon"}
+            ></FontAwesomeIcon>
             {" " + phone}
           </p>
         )}
         {email && (
           <p>
-            <a href={email}>
-              <FontAwesomeIcon icon={faEnvelope}></FontAwesomeIcon>
-              {" " + email}
-            </a>
+            <FontAwesomeIcon
+              icon={faEnvelope}
+              className={"icon"}
+            ></FontAwesomeIcon>
+            <a href={"mailto://" + email}>{" " + email}</a>
           </p>
         )}
         {address && (
           <p>
-            <FontAwesomeIcon icon={faLocationDot}></FontAwesomeIcon>
+            <FontAwesomeIcon
+              icon={faLocationDot}
+              className={"icon"}
+            ></FontAwesomeIcon>
             {" " + address + ", " + city + ", " + country}
           </p>
         )}
         {linkedIn && (
           <p>
-            <a href={linkedIn}>
-              <FontAwesomeIcon icon={faLinkedin}></FontAwesomeIcon>
-              {" " + linkedIn}
-            </a>
+            <FontAwesomeIcon
+              icon={faLinkedin}
+              className={"icon"}
+            ></FontAwesomeIcon>
+            <a href={linkedIn}>{" " + linkedIn}</a>
           </p>
         )}
         {github && (
           <p>
-            <a href={github}>
-              <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
-              {" " + github}
-            </a>
+            <FontAwesomeIcon
+              icon={faGithub}
+              className={"icon"}
+            ></FontAwesomeIcon>
+            <a href={github}>{" " + github}</a>
           </p>
         )}
       </div>

@@ -33,6 +33,14 @@ function Controls({
   handleInterestsChange,
   addInterest,
   removeInterest,
+  setPersonalInfo,
+  setExperiences,
+  setEducations,
+  setCertifications,
+  setInterests,
+  setLanguages,
+  setProjects,
+  setSkills,
 }) {
   const [expAdded, setExpAdded] = React.useState(false);
   function handleAddExperience() {
@@ -75,9 +83,128 @@ function Controls({
     addInterest();
     setInterestAdded(true);
   }
+  function fillDemo() {
+    setPersonalInfo({
+      firstName: "Daoud",
+      lastName: "Daoud",
+      description: "Daoud",
+      profilePictureFile: "",
+      jobTitle: "Web Developer",
+      email: "daoud.daoud.1991@gmail.com",
+      phone: "+963994567890",
+      address: "Sultani st",
+      city: "Zabadani",
+      country: "Syria",
+      linkedIn: "https://www.linkedin.com",
+      github: "https://www.github.com",
+    });
+    setExperiences([
+      {
+        position: "web developer",
+        company: "Syriatel Mobile Telecom",
+        city: "Damascus",
+        country: "Syria",
+        startDate: "01-01-2016",
+        endDate: "01-06-2019",
+        description: "asfd sdgsd sdkj lfjbd lkadj bkjb ldafkja ",
+      },
+      {
+        position: "iOS developer",
+        company: "Syriatel Mobile Telecom",
+        city: "Damascus",
+        country: "Syria",
+        startDate: "01-01-2018",
+        endDate: "01-06-2019",
+        description: "asfd sdgsd sdkj lfjbd lkadj bkjb ldafkja ",
+      },
+    ]);
+
+    setEducations([
+      {
+        university: "Damascus University",
+        degree: "Bachelor of Software Engineering",
+        city: "Damascus",
+        country: "Syria",
+        startDate: "01-01-2010",
+        endDate: "01-01-2016",
+      },
+      {
+        university: "Damascus University",
+        degree: "Bachelor of Software Engineering",
+        city: "Damascus",
+        country: "Syria",
+        startDate: "01-01-2010",
+        endDate: "01-01-2016",
+      },
+    ]);
+
+    setSkills([
+      {
+        skillName: "HTML + CSS + JavaScript",
+        proficiencyPercentage: "90%",
+      },
+      {
+        skillName: "ASP.Net",
+        proficiencyPercentage: "75%",
+      },
+      {
+        skillName: "React.js",
+        proficiencyPercentage: "30%",
+      },
+    ]);
+
+    setCertifications([
+      {
+        certificationName: "ASP.Net MVC certification",
+        issuingOrganization: "Syriatel Mobile Telecom",
+        issueDate: "01-01-2017",
+      },
+      {
+        certificationName: "ASP.Net MVC certification",
+        issuingOrganization: "Syriatel Mobile Telecom",
+        issueDate: "01-01-2017",
+      },
+    ]);
+
+    setInterests([
+      {
+        interestName: "Learning new technologies",
+      },
+      {
+        interestName: "Coding",
+      },
+    ]);
+
+    setLanguages([
+      {
+        languageName: "Arabic",
+        proficiencyLevel: "Native",
+      },
+      {
+        languageName: "English",
+        proficiencyLevel: "High Skilled",
+      },
+    ]);
+
+    setProjects([
+      {
+        projectName: "Daaaag ds",
+        projectDescription: "DAvsdk;sd sdsldksdnsldkjn ldsk nsldk nsdlf sndl ",
+        projectLink: "https://myproject.pro",
+      },
+      {
+        projectName: "Daaaag ds",
+        projectDescription: "DAvsdk;sd sdsldksdnsldkjn ldsk nsldk nsdlf sndl ",
+        projectLink: "https://myproject.pro",
+      },
+    ]);
+  }
 
   return (
     <section id="controls">
+      <button type="button" onClick={fillDemo}>
+        Download
+      </button>
       <Collapsible title="Personal Information">
         <InputSet data={personalInfo} onChange={handlePersonalInfoChange} />
       </Collapsible>

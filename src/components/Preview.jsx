@@ -2,6 +2,7 @@ import "../styles/Preview.css";
 import CvHeader from "./CvHeader";
 import ProfilePhoto from "./ProfilePhoto";
 import SideContent from "./SideContent";
+import MainContent from "./MainContent";
 
 function Preview({
   personalInfo,
@@ -34,6 +35,13 @@ function Preview({
           interests={interests}
         />
       </div>
+      <MainContent
+        experiences={experiences}
+        educations={educations}
+        skills={skills}
+        projects={projects}
+        certifications={certifications}
+      ></MainContent>
       <div className="skewed-bar"></div>
       <ProfilePhoto photoFile={personalInfo.profilePictureFile} />
     </section>

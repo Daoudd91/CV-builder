@@ -1,0 +1,53 @@
+.main-content {
+  position: absolute;
+  top: 280px;
+  left: 380px;
+  right: 0;
+  padding: 25px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 40px;
+  border-radius: 20px;
+  color: white;
+  background-color: #043280;
+  width: 300px;
+  font-size: 24px;
+}
+
+.large {
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.sub-section {
+  border-bottom: 1px solid #043280;
+}
+
+.sub-section:last-child {
+  border-bottom: none;
+}
+
+.section {
+  margin-bottom: 20px;
+}
+
+.skills-container {
+  display: grid;
+  grid-template-columns: 3fr 2fr 1fr;
+  align-items: center;
+  justify-content: start;
+  gap: 18px;
+}
+
+@media print {
+  .sub-section {
+    break-inside: avoid;
+  }
+  .section {
+    break-inside: avoid;
+  }
+}

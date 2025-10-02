@@ -5,12 +5,9 @@
   position: relative;
   z-index: 0;
   background-color: #ffffff;
-  overflow-y: auto;
+  overflow-y: scroll;
   font-family: "Ubuntu", sans-serif;
   color: #333333;
-  padding-left: 280px; /* space for vertical bar */
-  padding-top: 280px; /* space for horizontal bar */
-  min-height: 100vh; /* ensures the page fills the viewport */
 }
 
 /* Vertical bar */
@@ -23,6 +20,7 @@
   width: 300px;
   background-color: #181818;
   z-index: -1;
+  height: 500vh;
 }
 
 /* Horizontal bar */
@@ -63,7 +61,7 @@
 
   @page {
     size: A4 portrait;
-    margin: 0mm;
+    margin: 10mm;
   }
 
   #cv-preview {
@@ -71,7 +69,7 @@
     left: 0;
     top: 0;
     width: 100%;
-    min-height: 100vh; /* ensure full page height */
+    /* max-height: 100vh; */
     margin: 0;
     padding-left: 280px; /* space for vertical bar */
     padding-top: 280px; /* space for horizontal bar */
@@ -81,7 +79,7 @@
   }
 
   #cv-preview::before {
-    height: 100vh; /* ensure vertical bar reaches bottom of page */
+    position: fixed;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }

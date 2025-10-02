@@ -295,6 +295,14 @@ function App() {
         handleInterestsChange={handleInterestsChange}
         addInterest={addInterest}
         removeInterest={removeInterest}
+        setPersonalInfo={setPersonalInfo}
+        setExperiences={setExperiences}
+        setEducations={setEducations}
+        setCertifications={setCertifications}
+        setInterests={setInterests}
+        setLanguages={setLanguages}
+        setProjects={setProjects}
+        setSkills={setSkills}
       />
       <Preview
         personalInfo={personalInfo}
